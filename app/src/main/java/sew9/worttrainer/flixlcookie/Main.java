@@ -2,7 +2,7 @@ package sew9.worttrainer.flixlcookie;
 /**
  * Die Main-Klasse
  * @author Felix Warmuth
- * @version 14.11.2021
+ * @version 20.09.2023
  */
 public class Main {
     public static void main(String[] args) {

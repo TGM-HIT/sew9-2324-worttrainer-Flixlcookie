@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Ein WortTrainer
  * @author Felix Warmuth
- * @version 14.11.2021
+ * @version 20.09.2023
  */
 public class WortTrainer {
 
