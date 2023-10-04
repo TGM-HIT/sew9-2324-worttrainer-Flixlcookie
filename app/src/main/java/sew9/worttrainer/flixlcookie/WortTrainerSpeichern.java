@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class WortTrainerSpeichern extends WortTrainer{
+public class WortTrainerSpeichern{
+    private WortTrainer wortTrainer;
 
-
-    public WortTrainerSpeichern(WortListe liste){
-        super(liste);
+    public WortTrainerSpeichern(WortTrainer trainer){
+        this.wortTrainer=trainer;
     }
 
     /**
@@ -18,7 +18,7 @@ public class WortTrainerSpeichern extends WortTrainer{
     public void speichern(String pfad){
         File f= new File(pfad);
         try(BufferedWriter writer= new BufferedWriter(new FileWriter(f))){
-            writer.write(super.getFragen()+";"+super.getRichtig()+";"+super.getFalsch()+";"+super.getUngueltig());
+            writer.write(wortTrainer.getFragen()+";"+wortTrainer.getRichtig()+";"+wortTrainer.getFalsch()+";"+wortTrainer.getUngueltig());
         }catch(IOException e){
             JOptionPane.showMessageDialog(null,"Beim Speichern ist ein Fehler passiert!");
         }
@@ -41,11 +41,10 @@ public class WortTrainerSpeichern extends WortTrainer{
         try(Scanner scan=new Scanner(new BufferedReader(new FileReader(f)))){
             if(scan.hasNext()){
                 splitst=scan.next().split(";");
-                super.fragen=Integer.parseInt(splitst[0]);
-                super.richtig=Integer.parseInt(splitst[1]);
-                super.falsch=Integer.parseInt(splitst[2]);
-                super.ungueltig=Integer.parseInt(splitst[3]);
-                
+                wortTrainer.fragen=Integer.parseInt(splitst[0]);
+                wortTrainer.richtig=Integer.parseInt(splitst[1]);
+                wortTrainer.falsch=Integer.parseInt(splitst[2]);
+                wortTrainer.ungueltig=Integer.parseInt(splitst[3]);
             }
         }catch(IOException e){
             JOptionPane.showMessageDialog(null,"Beim Speichern ist ein Fehler passiert!");
