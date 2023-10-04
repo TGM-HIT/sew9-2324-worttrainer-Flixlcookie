@@ -27,6 +27,10 @@ public class WortTrainer {
 		this.ungueltig=0;
 	}
 
+	public WortListe getWortListe(){
+		return this.wortliste;
+	}
+
 	/**
 	 * gibt einen zufälligen Worteintrag aus der Liste zurück
 	 * @return Worteintrag
@@ -108,6 +112,14 @@ public class WortTrainer {
 	
 	public int getUngueltig(){
 		return this.ungueltig;
+	}
+
+	public void addRichtig(int i){
+		this.richtig+=i;
+	}
+
+	public void addFalsch(int i){
+		this.falsch+=i;
 	}
 
 }

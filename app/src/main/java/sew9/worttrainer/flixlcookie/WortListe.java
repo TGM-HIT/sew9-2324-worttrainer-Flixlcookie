@@ -16,6 +16,10 @@ public class WortListe {
 		this.wortliste= new WortEintrag[1];
 	}
 
+	public WortEintrag[] getWortEintragArray(){
+		return wortliste;
+	}
+
 	/**
 	 * fügt einen Worteintrag zu Wortliste hinzu
 	 * @param wort Worteintrag
