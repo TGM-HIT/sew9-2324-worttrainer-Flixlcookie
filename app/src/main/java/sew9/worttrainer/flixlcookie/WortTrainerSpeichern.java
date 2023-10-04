@@ -19,13 +19,6 @@ public class WortTrainerSpeichern extends WortTrainer{
         File f= new File(pfad);
         try(BufferedWriter writer= new BufferedWriter(new FileWriter(f))){
             writer.write(super.getFragen()+";"+super.getRichtig()+";"+super.getFalsch()+";"+super.getUngueltig());
-            writer.newLine();
-            for(int zaehler=0;zaehler<super.wortliste.getLength();zaehler++){
-                if(super.wortliste.getWort(zaehler)!=null){
-                    writer.write(super.wortliste.getWort(zaehler).toString());
-                    writer.newLine();
-                }
-            }
         }catch(IOException e){
             JOptionPane.showMessageDialog(null,"Beim Speichern ist ein Fehler passiert!");
         }
@@ -52,10 +45,7 @@ public class WortTrainerSpeichern extends WortTrainer{
                 super.richtig=Integer.parseInt(splitst[1]);
                 super.falsch=Integer.parseInt(splitst[2]);
                 super.ungueltig=Integer.parseInt(splitst[3]);
-                while(scan.hasNext()){
-                    splitst= scan.next().split(";");
-                    super.wortliste.addWort(new WortEintrag(splitst[0], splitst[1]));
-                }
+                
             }
         }catch(IOException e){
             JOptionPane.showMessageDialog(null,"Beim Speichern ist ein Fehler passiert!");
