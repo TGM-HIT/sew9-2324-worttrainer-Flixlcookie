@@ -18,7 +18,7 @@ public class WortTrainerSpeichern{
     public void speichern(String pfad){
         File f= new File(pfad);
         try(BufferedWriter writer= new BufferedWriter(new FileWriter(f))){
-            writer.write(wortTrainer.getFragen()+";"+wortTrainer.getRichtig()+";"+wortTrainer.getFalsch()+";"+wortTrainer.getUngueltig());
+            writer.write(wortTrainer.getRichtig()+";"+wortTrainer.getFalsch());
         }catch(IOException e){
             JOptionPane.showMessageDialog(null,"Beim Speichern ist ein Fehler passiert!");
         }
@@ -41,10 +41,8 @@ public class WortTrainerSpeichern{
         try(Scanner scan=new Scanner(new BufferedReader(new FileReader(f)))){
             if(scan.hasNext()){
                 splitst=scan.next().split(";");
-                wortTrainer.fragen=Integer.parseInt(splitst[0]);
-                wortTrainer.richtig=Integer.parseInt(splitst[1]);
-                wortTrainer.falsch=Integer.parseInt(splitst[2]);
-                wortTrainer.ungueltig=Integer.parseInt(splitst[3]);
+                wortTrainer.richtig=Integer.parseInt(splitst[0]);
+                wortTrainer.falsch=Integer.parseInt(splitst[1]);
             }
         }catch(IOException e){
             JOptionPane.showMessageDialog(null,"Beim Speichern ist ein Fehler passiert!");

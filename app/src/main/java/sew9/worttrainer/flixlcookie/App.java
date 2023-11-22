@@ -30,6 +30,8 @@ public class App {
 
         //Worttrainer
         WortTrainer trainer = new WortTrainer(wortliste1);
+        WortTrainerSpeichern sul= new WortTrainerSpeichern(trainer);
+        sul.laden();
 
         Random r = new Random();
 
@@ -51,6 +53,7 @@ public class App {
                     String antwort = JOptionPane.showInputDialog(null, "Welches Bild ist das? ");
                     if(antwort.equals("")){
                         running=false;
+                        sul.speichern();
                         break;
                     }
                     if(antwort.equals(neuesWort.getWort())) {
