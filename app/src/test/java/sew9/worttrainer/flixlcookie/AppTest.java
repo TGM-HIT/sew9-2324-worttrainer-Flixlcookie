@@ -20,7 +20,7 @@ class AppTest {
     void LadenTest(){
         WortListe liste = new WortListe();
         WortTrainer trainer = new WortTrainer(liste);
-       WortTrainerSpeichern sul = new WortTrainerSpeichern(trainer);
+        WortTrainerSpeichern sul = new WortTrainerSpeichern(trainer);
         sul.laden("TestTrainer.txt");
         assertEquals(5, trainer.getRichtig());
         assertEquals(2, trainer.getFalsch());

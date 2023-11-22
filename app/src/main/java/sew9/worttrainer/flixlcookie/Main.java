@@ -92,14 +92,5 @@ public class Main {
         System.out.println(trainer.getRichtig());
         System.out.println(trainer.getFalsch());
         System.out.println(trainer.getUngueltig());
-
-        WortTrainerSpeichern speicher= new WortTrainerSpeichern(wortliste1);
-        System.out.println(wortliste1.toString());
-        speicher.speichern("Test.txt");
-
-        WortListe test= new WortListe();
-        WortTrainerSpeichern speicher2= new WortTrainerSpeichern(test);
-        speicher2.laden("Test.txt");
-        System.out.println(test.toString());
     }
 }
