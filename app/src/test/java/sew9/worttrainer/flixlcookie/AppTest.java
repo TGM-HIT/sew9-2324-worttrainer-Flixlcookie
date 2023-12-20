@@ -21,7 +21,7 @@ class AppTest {
         WortListe liste = new WortListe();
         WortTrainer trainer = new WortTrainer(liste);
         WortTrainerSpeichern sul = new WortTrainerSpeichern(trainer);
-        sul.laden("TestTrainer.txt");
+        sul.laden("Worttrainer.txt");
         assertEquals(5, trainer.getRichtig());
         assertEquals(2, trainer.getFalsch());
     }
@@ -34,7 +34,9 @@ class AppTest {
         WortListe liste = new WortListe();
         WortTrainer trainer = new WortTrainer(liste);
         WortTrainerSpeichern sul = new WortTrainerSpeichern(trainer);
-        sul.speichern("TestSpeichern.txt");
+        trainer.addRichtig(5);
+        trainer.addFalsch(2);
+        sul.speichern("WortTrainer.txt");
     }
     /*
      * Testet ob das Speichern und Laden funktioniert
@@ -44,8 +46,10 @@ class AppTest {
         WortListe liste = new WortListe();
         WortTrainer trainer = new WortTrainer(liste);
         WortTrainerSpeichern sul = new WortTrainerSpeichern(trainer);
-        sul.speichern("TestSpeichern.txt");
-        sul.laden("TestTrainer.txt");
+        trainer.addRichtig(5);
+        trainer.addFalsch(2);
+        sul.speichern("WortTrainer.txt");
+        sul.laden("WortTrainer.txt");
         assertEquals(5, trainer.getRichtig());
         assertEquals(2, trainer.getFalsch());
     }
